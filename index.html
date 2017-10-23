@@ -6,71 +6,105 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 300px;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
   </head>
   <body>
-    <header>
-      <div class="row">
-        <div class="col offset-m1 m10">
-          <h1>hello whirled</h1>
+    <div class="row">
+      <div class="col s12">
+        <div id="map">
+        Loading map...<br>
+        <br>
+        <br>
+        <div style="text-align: center;">
+          <div class="preloader-wrapper active">
+          <div class="spinner-layer spinner-red-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+        </div>
+
         </div>
       </div>
-
-    </header>
+    </div>
     <div class="row">
-      <div id="gps-status" class="col m12 right">
+      <div class="col offset-m1 m10">
+        <h4>Flyer Distribution Tracker</h4>
       </div>
     </div>
-
     <div class="row">
       <div class="col offset-m1 m10">
         <div class="row">
           <form class="col s12">
+            <input id="lat" type="hidden">
+            <input id="lat" type="hidden">
             <div class="row">
               <div class="input-field col s6">
-                <input id="first_name" type="text" class="validate">
-                <label for="first_name">First Name</label>
+                <input id="firstname" type="text">
+                <label for="firstname">First Name</label>
               </div>
               <div class="input-field col s6">
-                <input id="last_name" type="text" class="validate">
-                <label for="last_name">Last Name</label>
+                <input id="lastname" type="text">
+                <label for="lastname">Last Name</label>
               </div>
             </div>
+
             <div class="row">
-              <div class="input-field col offset-s1 s2">
-                <a id="gps-button" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">gps_fixed</i></a>
+              <div class="input-field col s12">
+                <input id="place" type="text" required>
+                <label for="place">Name of place</label>
               </div>
-              <div class="input-field col s3">
-                <input value="" id="latitude" type="text">
-                <label for="latitude">Latitude</label>
-              </div>
-              <div class="input-field col s3">
-                <input value="" id="longitude" type="text">
-                <label for="longitude">Longitude</label>
-              </div>
-              <div class="input-field col s3">
-                <input value="" id="accuracy" type="text">
-                <label for="accuracy">Accuracy</label>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <select>
+                  <option value="" disabled selected>Which leaflet?</option>
+                  <option value="fall-2017-veg-dining-guide">Fall 2017 Veg Dining Guide to Worcester</option>
+                  <option value="nevf-2018-yard-sign">NEVF 2018 Yard Sign</option>
+                  <option value="nevf-2018-poster">NEVF 2018 Poster</option>
+                  <option value="nevf-2018-leaflets">NEVF 2018 Leaflets</option>
+                </select>
+                <label>Materialize Select</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
-                <label for="password">Password</label>
+                <input id="quantity" type="text" required>
+                <label for="quantity">Quantity</label>
               </div>
             </div>
+
+
+
             <div class="row">
               <div class="input-field col s12">
-                <input id="email" type="email" class="validate">
-                <label for="email">Email</label>
+                <textarea id="notes" class="materialize-textarea"></textarea>
+                <label for="notes">Notes</label>
               </div>
             </div>
             <div class="row">
-              <div class="col s12">
-                This is an inline input field:
-                <div class="input-field inline">
-                  <input id="email" type="email" class="validate">
-                  <label for="email" data-error="wrong" data-success="right">Email</label>
-                </div>
+              <div class="col offset-m4 m6">
+                <a id="gps-button" class="waves-effect waves-light btn"><i class="material-icons right">send</i>Submit</a>
               </div>
             </div>
           </form>
@@ -78,14 +112,26 @@
       </div>
     </div>
 
-
     <!-- Compiled and minified JavaScript -->
-    <script src="gps.js"></script>
+
     <script
       src="http://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script src="crowdsourcerer.js"></script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD77xW4OUIl6T73GZFPVa-zK4z4IIFGTR4&callback=initMap">
+    </script>
+    <!-- <script src="./gps.js"></script> -->
+    <script src="./crowdsourcerer.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+       $('select').material_select();
+     });
+
+    </script>
+
   </body>
 </html>

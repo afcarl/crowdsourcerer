@@ -7,16 +7,16 @@
  * @type {Object}
  */
 var GPS = {
-    attempts: 2,
+    attempts: 0,
     position: {
       "latitude": 35.6647,
       "longitude": 139.6982,
-      "accuracy": 200;
+      "accuracy": 200
     },
     default_position: {  // Shibuya
         "latitude": 35.6647,
         "longitude": 139.6982,
-        "accuracy": 200;
+        "accuracy": 200
     },
 
     callback: null,
