@@ -6,7 +6,7 @@ var map, infoWindow, marker;
 
 function initMap() {
   //var defaultPosition = {lat: -34.397, lng: 150.644};
-  $('#map').html()  
+  $('#map').html()
   //infoWindow = new google.maps.InfoWindow;
   refreshMap();
 
@@ -19,12 +19,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                         'Error: Your browser doesn\'t support geolocation.');
   infoWindow.open(map);
 }
-
-$('#gps-button').click(function (e) {
-  e.preventDefault();
-  refreshMap();
-});
-
 
 function refreshMap () {
   // Try HTML5 geolocation.
