@@ -62,30 +62,31 @@
     <div class="row">
       <div class="col offset-m1 m10">
         <div class="row">
-          <form class="col s12">
-            <input id="lat" type="hidden">
-            <input id="lat" type="hidden">
+          <form class="col s12" action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSf7mkYnMMHIEyVdfVoW8eU_-z2M2XqN9RHWs1NytbI27sUCMg/formResponse" method="POST">
+
+            <input id="lat" type="hidden" name="entry.945983882">
+            <input id="lng" type="hidden" name="entry.1675611403">
             <div class="row">
               <div class="input-field col s6">
-                <input id="firstname" type="text" class="autocomplete">
+                <input id="firstname" type="text" class="autocomplete" name="entry.207007330">
                 <label for="firstname">First Name</label>
               </div>
               <div class="input-field col s6">
-                <input id="lastname" type="text" class="autocomplete">
+                <input id="lastname" type="text" class="autocomplete" name="entry.182423812">
                 <label for="lastname">Last Name</label>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s12">
-                <input id="place" type="text" class="autocomplete" required>
+                <input id="place" type="text" class="autocomplete" required name="entry.1451167153">
                 <label for="place">Name of place</label>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s12">
-                <select>
+                <select id="leaflet" name="entry.687958494">
                   <option value="" disabled selected>Which leaflet?</option>
                   <option value="fall-2017-veg-dining-guide">Fall 2017 Veg Dining Guide to Worcester</option>
                   <option value="nevf-2018-yard-sign">NEVF 2018 Yard Sign</option>
@@ -97,20 +98,20 @@
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="quantity" type="text" required>
+                <input id="quantity" type="text" required name="entry.546221267">
                 <label for="quantity">Quantity</label>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s12">
-                <textarea id="notes" class="materialize-textarea" data-length="140"></textarea>
+                <textarea id="notes" class="materialize-textarea" data-length="140" name="entry.1710362745"></textarea>
                 <label for="notes">Notes (optional)</label>
               </div>
             </div>
             <div class="row">
               <div class="col offset-m4 m6">
-                <a id="gps-button" class="waves-effect waves-light btn"><i class="material-icons right">send</i>Submit</a>
+                <button type="submit" id="gps-button" class="waves-effect waves-light btn"><i class="material-icons right">send</i>Submit</button>
               </div>
             </div>
           </form>
