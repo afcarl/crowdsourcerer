@@ -20,6 +20,14 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
+function updateCoords (lat, lng) {
+  console.log('new position. lat: ' + lat + 'long: ' + lng)
+  $('#lat').val(lat);
+  $('#lng').val(lng);
+  $('#lat-preview').html(lat);
+  $('#lng-preview').html(lng);
+}
+
 function refreshMap () {
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
@@ -38,15 +46,15 @@ function refreshMap () {
         fullscreenControl: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
+      updateCoords(pos.lat, pos.lng);
+
       marker = new google.maps.Marker({
                          position: pos,
                          map: map,
                          title: 'Add a new place!',
                          draggable: true,
                          position_changed 	: function () {
-                           console.log('new position. lat: ' + marker.getPosition().lat() + 'long: ' + marker.getPosition().lng())
-                           $('#lat').val(marker.getPosition().lat());
-                           $('#lng').val(marker.getPosition().lng());
+                           updateCoords(marker.getPosition().lat(), marker.getPosition().lng());
                          }
                        });
       map.setZoom(18);

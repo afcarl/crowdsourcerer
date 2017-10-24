@@ -47,6 +47,14 @@
       </div>
     </div>
     <div class="row">
+      <div class="col s12" style="text-align: center; color: #a7a7a7">
+        Latitude: <span id="lat-preview">Getting location...</span> |
+        Longitude: <span id="lng-preview">Getting location...</span>
+
+      </div>
+
+    </div>
+    <div class="row">
       <div class="col offset-m1 m10">
         <h4>Flyer Distribution Tracker</h4>
       </div>
@@ -59,18 +67,18 @@
             <input id="lat" type="hidden">
             <div class="row">
               <div class="input-field col s6">
-                <input id="firstname" type="text">
+                <input id="firstname" type="text" class="autocomplete">
                 <label for="firstname">First Name</label>
               </div>
               <div class="input-field col s6">
-                <input id="lastname" type="text">
+                <input id="lastname" type="text" class="autocomplete">
                 <label for="lastname">Last Name</label>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s12">
-                <input id="place" type="text" required>
+                <input id="place" type="text" class="autocomplete" required>
                 <label for="place">Name of place</label>
               </div>
             </div>
@@ -94,12 +102,10 @@
               </div>
             </div>
 
-
-
             <div class="row">
               <div class="input-field col s12">
-                <textarea id="notes" class="materialize-textarea"></textarea>
-                <label for="notes">Notes</label>
+                <textarea id="notes" class="materialize-textarea" data-length="140"></textarea>
+                <label for="notes">Notes (optional)</label>
               </div>
             </div>
             <div class="row">
@@ -129,7 +135,52 @@
     <script type="text/javascript">
     $(document).ready(function() {
        $('select').material_select();
+       $('input#input_text, textarea#textarea1').characterCounter();
+
+       $('#firstname').autocomplete({
+          data: {
+            "Drew": null,
+            "Nicole": null,
+            "Brie": null,
+            "Manda": null,
+            "Greg": null
+          },
+          limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
+          onAutocomplete: function(val) {
+            // Callback function when value is autcompleted.
+          },
+          minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+      });
+      $('#lastname').autocomplete({
+         data: {
+           "Wilson": null,
+           "Melone": null,
+           "Goldberg": null,
+           "Rose": null,
+           "Opperman": null
+         },
+         limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
+         onAutocomplete: function(val) {
+           // Callback function when value is autcompleted.
+         },
+         minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
      });
+     $('#place').autocomplete({
+        data: {
+          "Loving Hut (Chandler St)": null,
+          "Belmont Veg": null,
+          "Loving Hut (Hamilton St)": null,
+          "Udupi": null,
+          "Technocopia": null,
+          "City Hall Worcester": null
+        },
+        limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
+        onAutocomplete: function(val) {
+          // Callback function when value is autcompleted.
+        },
+        minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+    });
+    });
 
     </script>
 
